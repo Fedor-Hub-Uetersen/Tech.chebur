@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chebur Tech Portal</title>
+    <title>Tech.Chebur.Shop Solutions</title>
     <style>
         body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; background-color: #f4f4f9; }
         header { border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px; }
+        .lang-switch { margin-bottom: 10px; }
+        .lang-switch a { cursor: pointer; color: #0056b3; text-decoration: underline; margin-right: 10px; }
         h1 { margin: 0; color: #2c3e50; }
         .project-card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
         .project-card h2 { margin-top: 0; color: #0056b3; }
@@ -15,26 +17,62 @@
 </head>
 <body>
 
+    <div class="lang-switch">
+        <a onclick="setLang('ru')">RU</a> | <a onclick="setLang('de')">DE</a>
+    </div>
+
     <header>
-        <h1>Chebur Tech Solutions</h1>
-        <p>Мониторинг и технические системы</p>
+        <h1 id="title">Tech.Chebur.Shop Solutions</h1>
+        <p id="subtitle">Мониторинг и технические системы</p>
     </header>
 
     <div class="project-card">
-        <h2>GPS Трекинг</h2>
-        <p>Система профессионального мониторинга и безопасности.</p>
-        <a href="/tracker-login">Перейти к панели управления</a>
+        <h2 id="gps-title">GPS Трекинг</h2>
+        <p id="gps-desc">Система профессионального мониторинга и безопасности.</p>
+        <a href="/tracker-login" id="gps-link">Перейти к панели управления</a>
     </div>
 
     <div class="project-card">
-        <h2>Технический Архив</h2>
-        <p>Логи, конфигурации и документация проектов.</p>
-        <a href="/archive">Открыть архив</a>
+        <h2 id="arch-title">Технический Архив</h2>
+        <p id="arch-desc">Логи, конфигурации и документация проектов.</p>
+        <a href="/archive" id="arch-link">Открыть архив</a>
     </div>
 
     <footer>
         &copy; 2026 Fedir Cheburaschkin. Uetersen, Germany.
     </footer>
 
+    <script>
+        const content = {
+            ru: {
+                subtitle: "Мониторинг и технические системы",
+                gpsTitle: "GPS Трекинг",
+                gpsDesc: "Система профессионального мониторинга и безопасности.",
+                gpsLink: "Перейти к панели управления",
+                archTitle: "Технический Архив",
+                archDesc: "Логи, конфигурации и документация проектов.",
+                archLink: "Открыть архив"
+            },
+            de: {
+                subtitle: "Überwachung und technische Systeme",
+                gpsTitle: "GPS-Tracking",
+                gpsDesc: "Professionelles Überwachungs- und Sicherheitssystem.",
+                gpsLink: "Zum Kontrollpanel",
+                archTitle: "Technisches Archiv",
+                archDesc: "Protokolle, Konfigurationen und Projektdokumentation.",
+                archLink: "Archiv öffnen"
+            }
+        };
+
+        function setLang(lang) {
+            document.getElementById('subtitle').innerText = content[lang].subtitle;
+            document.getElementById('gps-title').innerText = content[lang].gpsTitle;
+            document.getElementById('gps-desc').innerText = content[lang].gpsDesc;
+            document.getElementById('gps-link').innerText = content[lang].gpsLink;
+            document.getElementById('arch-title').innerText = content[lang].archTitle;
+            document.getElementById('arch-desc').innerText = content[lang].archDesc;
+            document.getElementById('arch-link').innerText = content[lang].archLink;
+        }
+    </script>
 </body>
 </html>
