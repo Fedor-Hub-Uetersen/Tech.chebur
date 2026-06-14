@@ -36,13 +36,7 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.15); 
             margin-bottom: 20px; 
             border: 1px solid #444;
-            transition: transform 0.2s, border-color 0.2s;
         }
-
-        /* Стиль для кликабельной карточки */
-        .card-link { text-decoration: none; color: inherit; display: block; }
-        .card-link:hover .project-card { border-color: #00ffff; transform: scale(1.01); }
-
         .project-card h2 { margin-top: 0; color: #00ffff; }
         .project-card a { color: #00ffff; text-decoration: none; font-weight: bold; }
         .project-card a:hover { text-decoration: underline; }
@@ -61,13 +55,13 @@
         <p id="subtitle">Мониторинг и технические системы</p>
     </header>
 
-    <a href="https://sos-id.online" class="card-link">
-        <div class="project-card">
-            <h2 id="gps-title">GPS Трекинг</h2>
-            <p id="gps-desc">Система профессионального мониторинга и безопасности.</p>
-            <span id="gps-link" style="color: #00ffff; font-weight: bold; text-decoration: underline;">Перейти к панели управления</span>
-        </div>
-    </a>
+    <a href="https://sos-id.online" style="text-decoration: none; color: inherit; display: block;">
+    <div class="project-card">
+        <h2 id="gps-title">GPS Трекинг</h2>
+        <p id="gps-desc">Система профессионального мониторинга и безопасности.</p>
+        <span id="gps-link" style="text-decoration: underline; font-weight: bold;">Перейти к панели управления</span>
+    </div>
+</a>
 
     <div class="project-card">
         <h2 id="arch-title">Технический Архив</h2>
