@@ -36,18 +36,10 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.15); 
             margin-bottom: 20px; 
             border: 1px solid #444;
-            transition: transform 0.2s, background 0.2s;
         }
-
-        .project-card:hover {
-            background: rgba(30, 30, 30, 0.95);
-            border-color: #00ffff;
-            transform: scale(1.01);
-        }
-
         .project-card h2 { margin-top: 0; color: #00ffff; }
-        
-        .link-text { color: #00ffff; text-decoration: underline; font-weight: bold; }
+        .project-card a { color: #00ffff; text-decoration: none; font-weight: bold; }
+        .project-card a:hover { text-decoration: underline; }
         
         footer { margin-top: 50px; font-size: 0.9em; text-align: center; color: #888; }
     </style>
@@ -63,25 +55,23 @@
         <p id="subtitle">Мониторинг и технические системы</p>
     </header>
 
-    <a href="https://sos-id.online" style="text-decoration: none; color: inherit; display: block;">
-        <div class="project-card">
-            <h2 id="gps-title">GPS Трекинг</h2>
-            <p id="gps-desc">Система профессионального мониторинга и безопасности.</p>
-            <span class="link-text" id="gps-link">Перейти к панели управления</span>
-        </div>
-    </a>
+    <div class="project-card">
+        <h2 id="gps-title">GPS Трекинг</h2>
+        <p id="gps-desc">Система профессионального мониторинга и безопасности.</p>
+        <a href="/tracker-login" id="gps-link">Перейти к панели управления</a>
+    </div>
 
     <div class="project-card">
         <h2 id="arch-title">Технический Архив</h2>
         <p id="arch-desc">Логи, конфигурации и документация проектов.</p>
-        <a href="/archive" class="link-text" id="arch-link">Открыть архив</a>
+        <a href="/archive" id="arch-link">Открыть архив</a>
     </div>
 
     <div class="project-card">
         <h2 id="contact-title">Контакты</h2>
         <p id="contact-desc">Свяжитесь со мной через WhatsApp или электронную почту:</p>
-        <p>WhatsApp: <a href="https://wa.me/49017661566343" style="color: #00ffff;">+49 0176 61566343</a></p>
-        <p>Email: <a href="mailto:tech.chebur@gmail.com" style="color: #00ffff;">tech.chebur@gmail.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/49017661566343">+49 0176 61566343</a></p>
+        <p>Email: <a href="mailto:tech.chebur@gmail.com">tech.chebur@gmail.com</a></p>
     </div>
 
     <footer>
