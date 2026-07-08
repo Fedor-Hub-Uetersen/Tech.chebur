@@ -66,9 +66,68 @@
         }
         
         footer { margin-top: 50px; font-size: 0.9em; text-align: center; color: #888; }
+
+        /* СТИЛИ ДЛЯ ВЫПАДАЮЩЕГО РЕКЛАМНОГО БАННЕРА */
+        .adv-banner {
+            position: fixed;
+            top: -100px; /* Изначально спрятан выше экрана */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(20, 20, 20, 0.95));
+            border: 2px solid #00ffff;
+            box-shadow: 0 5px 25px rgba(0, 255, 255, 0.4);
+            border-radius: 0 0 15px 15px; /* Скругление только снизу */
+            padding: 15px 40px 15px 20px;
+            text-align: center;
+            z-index: 1000;
+            transition: top 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Плавное выпадание с отскоком */
+        }
+
+        .adv-banner.show {
+            top: 0; /* Выезжает сверху */
+        }
+
+        .adv-text {
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .adv-text span {
+            color: #00ffff;
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+        }
+
+        .adv-close {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .adv-close:hover {
+            color: #00ffff;
+        }
     </style>
 </head>
 <body>
+
+    <!-- ВЫПАДАЮЩИЙ БАННЕР -->
+    <div id="advBanner" class="adv-banner">
+        <p id="adv-text-content" class="adv-text">Hier könnte Ihre Werbung stehen! | <span>Здесь может быть Ваша реклама!</span></p>
+        <button class="adv-close" onclick="closeBanner()">&times;</button>
+    </div>
 
     <div class="lang-switch">
         <a onclick="setLang('ru')">RU</a> | <a onclick="setLang('de')">DE</a>
@@ -136,7 +195,7 @@
     </div>
 
     <footer>
-        &copy; 2026 <a href="https://fedorcheb.chebur.shop" style="color: #00ffff; text-decoration: none; font-weight: bold;">fedorcheb.chebur.shop</a>. <span class="footer-address">Uetersen, Germany.</span>
+        &copy; 2026 <a href="https://tech.chebur.shop" style="color: #00ffff; text-decoration: none; font-weight: bold;">tech.chebur.shop</a>. <span class="footer-address">Uetersen, Germany.</span>
     </footer>
 
     <script>
@@ -165,6 +224,9 @@
                 aboutTitle: "О проекте",
                 aboutDesc: "Мы занимаемся разработкой, развертыванием и поддержкой современных технических систем, специализированных Telegram-ботов и веб-утилит для оптимизации процессов. В рамках нашей творческой мастерской мы объединяем программные решения, серверную логику, а также мультимедийные инструменты для автоматизации и эффективного решения пользовательских задач.",
                 
+                // Текст баннера для RU
+                advText: "Hier könnte Ihre Werbung stehen! | <span>Здесь может быть Ваша реклама!</span>",
+
                 contactTitle: "Контакты",
                 contactDesc: "Свяжитесь со мной через WhatsApp или электронную почту:",
                 contactWaBtn: "WhatsApp",
@@ -194,6 +256,9 @@
                 aboutTitle: "Über das Projekt",
                 aboutDesc: "Wir beschäftigen uns mit der Entwicklung, Bereitstellung und Wartung moderner technischer Systeme, spezialisierter Telegram-Bots und Web-Utilities zur Prozessoptimierung. Im Rahmen unserer Kreativwerkstatt kombinieren wir Softwarelösungen, Serverlogik sowie Multimedia-Tools zur Automatisierung und effizienten Bewältigung von Benutzeraufgaben.",
                 
+                // Текст баннера для DE
+                advText: "<span>Hier könnte Ihre Werbung stehen!</span> | Hier kann Ihre Werbung sein!",
+
                 contactTitle: "Kontakt",
                 contactDesc: "Kontaktieren Sie mich per WhatsApp oder E-Mail:",
                 contactWaBtn: "WhatsApp",
@@ -227,6 +292,9 @@
             document.getElementById('about-title').innerText = content[lang].aboutTitle;
             document.getElementById('about-desc').innerText = content[lang].aboutDesc;
             
+            // Переключение языка в баннере
+            document.getElementById('adv-text-content').innerHTML = content[lang].advText;
+
             document.getElementById('contact-title').innerText = content[lang].contactTitle;
             document.getElementById('contact-desc').innerText = content[lang].contactDesc;
             document.getElementById('contact-wa-btn').innerText = content[lang].contactWaBtn;
@@ -259,6 +327,19 @@
         logo.addEventListener('touchend', () => {
             logo.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
         });
+
+        /* ЛОГИКА РАБОТЫ РЕКЛАМНОГО БАННЕРА */
+        // Баннер красиво выпадает через 1.5 секунды после загрузки сайта
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('advBanner').classList.add('show');
+            }, 1500); 
+        });
+
+        // Функция закрытия баннера при нажатии на крестик
+        function closeBanner() {
+            document.getElementById('advBanner').classList.remove('show');
+        }
     </script>
 </body>
 </html>
