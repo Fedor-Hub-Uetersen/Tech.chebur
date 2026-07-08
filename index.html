@@ -87,14 +87,14 @@
         <p id="new1-desc">Полезные утилиты для повседневных задач и работы с контентом.</p>
         
         <div style="display: flex; gap: 10px; margin-top: 15px;">
-            <a href="https://resizer.chebur.shop" style="background: #00ffff; color: #000; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Оптимизатор картинок</a>
-            <a href="https:///passwortgenerator.chebur.shop" id="new1-btn2" style="border: 1px solid #00ffff; color: #00ffff; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Оптимизатор паролей</a>
+            <a href="https://resizer.chebur.shop" id="new1-btn1" style="background: #00ffff; color: #000; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Оптимизатор картинок</a>
+            <a href="https://passwortgenerator.chebur.shop" id="new1-btn2" style="border: 1px solid #00ffff; color: #00ffff; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Оптимизатор паролей</a>
         </div>
     </div>
 
     <div class="project-card">
         <h2 id="new2-title">Наша творческая мастерская</h2>
-        <p id="new2-desc">Создание рекламы и видеороликов.</p>
+        <p id="new2-desc">Создание рекламы и videoроликов.</p>
         
         <div style="display: flex; gap: 10px; margin-top: 15px;">
             <a href="https://Aidex.chebur.shop" id="new2-btn1" style="background: #00ffff; color: #000; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Aidex.chebur.shop</a>
@@ -124,20 +124,19 @@
                 gpsDesc: "Система профессионального мониторинга и безопасности.",
                 panelBtn: "SOS-ID",
                 mapBtn: "Карта",
-                archTitle: "Полезные программы",
-                archDesc: "Логи,боты.",
-                archSosBtn: "Супер Ваня Бот",
-                archLinkBtn: "Фритц Бот",
+                archTitle: "Наши Боты",
+                archDesc: "Логи, Боты, конфигурации и документация проектов.",
+                archSosBtn: "Бот таможенный калькулятор",
+                archLinkBtn: "Бот ассистент диабетика",
                 
-                // Переводы для новых кнопок (RU)
                 new1Title: "Полезные утилиты",
                 new1Desc: "Полезные утилиты для повседневных задач и работы с контентом.",
                 new1Btn1: "Оптимизатор картинок",
                 new1Btn2: "Оптимизатор паролей",
                 
-                new2Title: "Наша Мастерская",
+                new2Title: "Наша творческая мастерская",
                 new2Desc: "Создание рекламы и видеороликов.",
-                new2Btn1: "Aidex X",
+                new2Btn1: "Aidex.chebur.shop",
                 new2Btn2: "Yoga.chebur.shop",
                 
                 contactTitle: "Контакты",
@@ -151,16 +150,15 @@
                 gpsDesc: "Professionelles Überwachungs- und Sicherheitssystem.",
                 panelBtn: "SOS-ID",
                 mapBtn: "Karte",
-                archTitle: "nützliche Programme",
-                archDesc: "Protokolle, Bots",
-                archSosBtn: "Super Wanja Bot",
-                archLinkBtn: "Fritz Bot",
+                archTitle: "Unsere Bots",
+                archDesc: "Protokolle, Bots, Konfigurationen und Projektdokumentation.",
+                archSosBtn: "Zollrechner Bot",
+                archLinkBtn: "Diabetes-Assistent Bot",
                 
-                // Переводы для новых кнопок (DE)
-                new1Title: "nützliche Tilite",
-                new1Desc: "Nützliche Tools für alltägliche Aufgaben und die Arbeit mit Inhalten.",
+                new1Title: "Nützliche Tools",
+                new1Desc: "Nützliche Werkzeuge für alltägliche Aufgaben und Medienoptimierung.",
                 new1Btn1: "Bildoptimierer",
-                new1Btn2: "Passwort-Optimierer",
+                new1Btn2: "Passwort-Generator",
                 
                 new2Title: "Unsere Kreativwerkstatt",
                 new2Desc: "Erstellung von Werbeanzeigen und Videos.",
@@ -187,7 +185,6 @@
             document.getElementById('arch-sos-btn').innerText = content[lang].archSosBtn;
             document.getElementById('arch-link-btn').innerText = content[lang].archLinkBtn;
             
-            // Логика переключения языков для новых карточек
             document.getElementById('new1-title').innerText = content[lang].new1Title;
             document.getElementById('new1-desc').innerText = content[lang].new1Desc;
             document.getElementById('new1-btn1').innerText = content[lang].new1Btn1;
