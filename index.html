@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech.Chebur.Shop Salutions</title>
+    <title>Tech.Chebur.Shop Solutions</title>
     <style>
         body { 
             font-family: 'Arial', sans-serif; 
@@ -41,6 +41,13 @@
         .project-card a { color: #00ffff; text-decoration: none; font-weight: bold; }
         .project-card a:hover { text-decoration: underline; }
         
+        /* Стилизация подсвеченного адреса в футере */
+        .footer-address {
+            color: #00ffff;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+        
         footer { margin-top: 50px; font-size: 0.9em; text-align: center; color: #888; }
     </style>
 </head>
@@ -70,8 +77,28 @@
         <p id="arch-desc">Логи, конфигурации и документация проектов.</p>
         
         <div style="display: flex; gap: 10px; margin-top: 15px;">
-            <a href="https://t.me/super_vanja_bot" id="arch-sos-btn" style="background: #00ffff; color: #000; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Zollrechner</a>
+            <a href="https://t.me/super_vanja_bot" id="arch-sos-btn" style="background: #00ffff; color: #000; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Таможенный калькулятор</a>
             <a href="https://passwortgenerator.chebur.shop" id="arch-link-btn" style="border: 1px solid #00ffff; color: #00ffff; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Открыть архив</a>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <h2 id="new1-title">Новый блок 1</h2>
+        <p id="new1-desc">Описание для первого нового блока систем или ссылок.</p>
+        
+        <div style="display: flex; gap: 10px; margin-top: 15px;">
+            <a href="https://example.com/1" id="new1-btn1" style="background: #00ffff; color: #000; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Кнопка 1.1</a>
+            <a href="https://example.com/2" id="new1-btn2" style="border: 1px solid #00ffff; color: #00ffff; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Кнопка 1.2</a>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <h2 id="new2-title">Новый блок 2</h2>
+        <p id="new2-desc">Описание для второго нового блока систем или ссылок.</p>
+        
+        <div style="display: flex; gap: 10px; margin-top: 15px;">
+            <a href="https://example.com/3" id="new2-btn1" style="background: #00ffff; color: #000; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Кнопка 2.1</a>
+            <a href="https://example.com/4" id="new2-btn2" style="border: 1px solid #00ffff; color: #00ffff; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Кнопка 2.2</a>
         </div>
     </div>
 
@@ -86,7 +113,7 @@
     </div>
 
     <footer>
-        &copy; 2026 Tech.chebur.shop. Uetersen, Germany.
+        &copy; 2026 Tech.chebur.shop. <span class="footer-address">Uetersen, Germany.</span>
     </footer>
 
     <script>
@@ -101,6 +128,18 @@
                 archDesc: "Логи, конфигурации и документация проектов.",
                 archSosBtn: "Таможенный калькулятор",
                 archLinkBtn: "Открыть архив",
+                
+                // Переводы для новых кнопок (RU)
+                new1Title: "Новый блок 1",
+                new1Desc: "Описание для первого нового блока систем или ссылок.",
+                new1Btn1: "Кнопка 1.1",
+                new1Btn2: "Кнопка 1.2",
+                
+                new2Title: "Новый блок 2",
+                new2Desc: "Описание для второго нового блока систем или ссылок.",
+                new2Btn1: "Кнопка 2.1",
+                new2Btn2: "Кнопка 2.2",
+                
                 contactTitle: "Контакты",
                 contactDesc: "Свяжитесь со мной через WhatsApp или электронную почту:",
                 contactWaBtn: "WhatsApp",
@@ -116,6 +155,18 @@
                 archDesc: "Protokolle, Konfigurationen und Projektdokumentation.",
                 archSosBtn: "Zollrechner",
                 archLinkBtn: "Archiv öffnen",
+                
+                // Переводы для новых кнопок (DE)
+                new1Title: "Neuer Block 1",
+                new1Desc: "Beschreibung für den ersten neuen Projektbereich.",
+                new1Btn1: "Button 1.1",
+                new1Btn2: "Button 1.2",
+                
+                new2Title: "Neuer Block 2",
+                new2Desc: "Beschreibung für den zweiten neuen Projektbereich.",
+                new2Btn1: "Button 2.1",
+                new2Btn2: "Button 2.2",
+                
                 contactTitle: "Kontakt",
                 contactDesc: "Kontaktieren Sie mich per WhatsApp oder E-Mail:",
                 contactWaBtn: "WhatsApp",
@@ -124,10 +175,8 @@
         };
 
         function setLang(lang) {
-            // Меняем язык атрибута страницы для браузеров
             document.getElementById('html-root').setAttribute('lang', lang);
             
-            // Переводим текстовые блоки
             document.getElementById('subtitle').innerText = content[lang].subtitle;
             document.getElementById('gps-title').innerText = content[lang].gpsTitle;
             document.getElementById('gps-desc').innerText = content[lang].gpsDesc;
@@ -137,6 +186,18 @@
             document.getElementById('arch-desc').innerText = content[lang].archDesc;
             document.getElementById('arch-sos-btn').innerText = content[lang].archSosBtn;
             document.getElementById('arch-link-btn').innerText = content[lang].archLinkBtn;
+            
+            // Логика переключения языков для новых карточек
+            document.getElementById('new1-title').innerText = content[lang].new1Title;
+            document.getElementById('new1-desc').innerText = content[lang].new1Desc;
+            document.getElementById('new1-btn1').innerText = content[lang].new1Btn1;
+            document.getElementById('new1-btn2').innerText = content[lang].new1Btn2;
+            
+            document.getElementById('new2-title').innerText = content[lang].new2Title;
+            document.getElementById('new2-desc').innerText = content[lang].new2Desc;
+            document.getElementById('new2-btn1').innerText = content[lang].new2Btn1;
+            document.getElementById('new2-btn2').innerText = content[lang].new2Btn2;
+            
             document.getElementById('contact-title').innerText = content[lang].contactTitle;
             document.getElementById('contact-desc').innerText = content[lang].contactDesc;
             document.getElementById('contact-wa-btn').innerText = content[lang].contactWaBtn;
