@@ -19,11 +19,28 @@
         
         header { text-align: center; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 20px; }
         
+        /* Обновленный живой логотип волка с поддержкой 3D и пульсации */
         .logo { 
             width: 300px; 
             display: block; 
             margin: 0 auto 10px auto;
-            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.3));
+            border-radius: 15px;
+            transition: transform 0.1s ease, filter 0.3s ease;
+            will-change: transform;
+            animation: neonPulse 4s infinite ease-in-out;
+        }
+
+        /* Эффект живого неонового дыхания волка */
+        @keyframes neonPulse {
+            0% {
+                filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.3)) brightness(0.95);
+            }
+            50% {
+                filter: drop-shadow(0 0 22px rgba(0, 255, 255, 0.6)) brightness(1.1);
+            }
+            100% {
+                filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.3)) brightness(0.95);
+            }
         }
 
         .lang-switch { text-align: center; margin-bottom: 20px; }
@@ -119,7 +136,7 @@
     </div>
 
     <footer>
-        &copy; 2026 <a href="https://fedorcheb.chebur.shop" style="color: #00ffff; text-decoration: none; font-weight: bold;">fedorcheb.chebur.shop</a>. <span class="footer-address">Uetersen, Germany.</span>
+        &copy; 2026 <a href="https://tech.chebur.shop" style="color: #00ffff; text-decoration: none; font-weight: bold;">tech.chebur.shop</a>. <span class="footer-address">Uetersen, Germany.</span>
     </footer>
 
     <script>
@@ -145,7 +162,6 @@
                 new2Btn1: "Aidex.chebur.shop",
                 new2Btn2: "Yoga.chebur.shop",
                 
-                // Строгий деловой перевод (RU)
                 aboutTitle: "О проекте",
                 aboutDesc: "Мы занимаемся разработкой, развертыванием и поддержкой современных технических систем, специализированных Telegram-ботов и веб-утилит для оптимизации процессов. В рамках нашей творческой мастерской мы объединяем программные решения, серверную логику, а также мультимедийные инструменты для автоматизации и эффективного решения пользовательских задач.",
                 
@@ -175,7 +191,6 @@
                 new2Btn1: "Aidex.chebur.shop",
                 new2Btn2: "Yoga.chebur.shop",
                 
-                // Строгий деловой перевод (DE)
                 aboutTitle: "Über das Projekt",
                 aboutDesc: "Wir beschäftigen uns mit der Entwicklung, Bereitstellung und Wartung moderner technischer Systeme, spezialisierter Telegram-Bots und Web-Utilities zur Prozessoptimierung. Im Rahmen unserer Kreativwerkstatt kombinieren wir Softwarelösungen, Serverlogik sowie Multimedia-Tools zur Automatisierung und effizienten Bewältigung von Benutzeraufgaben.",
                 
@@ -217,6 +232,33 @@
             document.getElementById('contact-wa-btn').innerText = content[lang].contactWaBtn;
             document.getElementById('contact-mail-btn').innerText = content[lang].contactMailBtn;
         }
+
+        /* Интерактивная логика 3D-наклона волка */
+        const logo = document.querySelector('.logo');
+        
+        document.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const { innerWidth, innerHeight } = window;
+            const xRotation = ((clientY - innerHeight / 2) / innerHeight) * 30;
+            const yRotation = ((clientX - innerWidth / 2) / innerWidth) * -30;
+            logo.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.05)`;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            logo.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+        });
+        
+        logo.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            const { innerWidth, innerHeight } = window;
+            const xRotation = ((touch.clientY - innerHeight / 2) / innerHeight) * 20;
+            const yRotation = ((touch.clientX - innerWidth / 2) / innerWidth) * -20;
+            logo.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.05)`;
+        });
+        
+        logo.addEventListener('touchend', () => {
+            logo.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+        });
     </script>
 </body>
 </html>
